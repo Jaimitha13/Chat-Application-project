@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'chat/css/sign.css' %}">
+</head>
+<body>
+    <div class="register-container">
+        <h2 class="register-title">Login</h2>
+    
+        <form method="POST" class="register-form">
+            {% csrf_token %}
+    
+            <div class="form-group">
+                <label for="id_username">Username:</label>
+                <input type="text" id="id_username" name="username" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="id_password">Password:</label>
+                <input type="password" id="id_password" name="password" required>
+            </div>
+    
+            <button type="submit" class="btn-submit">Login</button>
+    
+            {% if error %}
+            <p class="error-message">{{ error }}</p>
+            {% endif %}
+        </form>
+    
+        <!-- Link for users without an account -->
+        <p class="login-link">
+            Don’t have an account? <a href="{% url 'register' %}">Register here</a>
+        </p>
+    </div>
+</body>
+</html>

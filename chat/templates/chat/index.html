@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAT APPLICATION</title>
+    <link rel="stylesheet" href="{% static 'chat/css/index.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="logout">
+            <form action="{% url 'logout_view' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    
+        <h1>Hi {{username}}, Welcome to Chat Application</h1>
+    <br><br>
+        <div class="rooms-list">
+            <h2>AVAILABLE ROOMS</h2>
+            <ul id="rooms">
+                {% for room in rooms %}
+                <li><a href="{% url 'room' room.name %}">{{ room.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    
+        <div class="create-room">
+            <form action="{% url 'create_room' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" id="room-name" name="room_name" placeholder="Room name">
+                <button id="create-room">Create Room</button>
+            </form>
+        </div>
+    
+        <div class="online-users">
+            <h2>Online Users</h2>
+            <ul id="users-online"></ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

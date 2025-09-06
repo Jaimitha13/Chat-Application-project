@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room: {{ room.name }}</title>
+    <link rel="stylesheet" href="{% static 'chat/css/room.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>CHAT ROOM: {{room.name}}</h1>
+        <p>Chat here...</p>
+        <a href="{% url 'index' %}">Back to rooms</a>
+        <div class="chat-box" id="chat-box">
+            {% for message in messages %}
+            <div class="message">
+                <strong>{{ message.user.username }}</strong>: {{ message.co
+                ntent }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="input-area">
+            <input type="text" id="chat-message" placeholder="Type your message">
+            <button id="send-message">Send</button>
+        </div>
+        <div class="online-users">
+            <h2>Online in this room</h2>
+            <ul id="users-online"></ul>
+        </div>
+    </div>
+    <script>
+        const roomName = "{{ room_name }}";
+        const currentUser = "{{ request.user.username }}";
+    </script>
+    <script src="{% static 'chat/js/room.js' %}"></script>
+</body>
+
+</html>
