@@ -49,3 +49,5 @@ Users can register, log in, create or join chat rooms, and communicate instantly
     DjangoApp --> DB[PostgreSQL Database];
     ---
 ## 🖼️ Screenshots
+### Chat Room Login
+![Chat Room](https://github.com/Jaimitha13/Chat-Application-project/blob/ef485777f9dc2589f8bb1d952548b342736424e5/Screenshot%202025-09-06%20134416.png?raw=true)
