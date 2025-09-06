@@ -51,3 +51,7 @@ Users can register, log in, create or join chat rooms, and communicate instantly
 ## 🖼️ Screenshots
 ### Chat Room Login
 ![Chat Room](https://github.com/Jaimitha13/Chat-Application-project/blob/ef485777f9dc2589f8bb1d952548b342736424e5/Screenshot%202025-09-06%20134416.png?raw=true)
+
+##  Chat Room Screenshot
+
+![Chat Room](https://github.com/Jaimitha13/Chat-Application-project/blob/834015dfe047b77ea4218509b4e14b7e1bc0bb74/Screenshot%202025-09-06%20134747.png?raw=true)
