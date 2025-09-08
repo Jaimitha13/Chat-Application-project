@@ -15,11 +15,13 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # log in new user
-            return redirect('index')  # redirect to index
+            login(request, user)  
+            return redirect('index') 
     else:
-        form = UserCreationForm()
+        form = UserCreationForm()  # initialize a fresh form on GET
+    
     return render(request, 'chat/register.html', {'form': form})
+
 
 def login_view(request):
     if request.method == "POST":
@@ -28,8 +30,8 @@ def login_view(request):
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request, user)  # log in user
-            return redirect('index')  # redirect to index page
+            login(request, user)  
+            return redirect('index')  
         else:
             error = "Invalid username or password"
             return render(request, 'chat/login.html', {'error': error})
